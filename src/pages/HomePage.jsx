@@ -16,12 +16,12 @@ export default function HomePage() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    search();
+    search(); // Effettua la ricerca quando si invia il form
   };
 
   return (
     <div className="container py-5">
-      <h1>Home</h1>
+      <h1>Boolflix</h1>
 
       <div className="search-bar">
         <form onSubmit={handleFormSubmit}>
@@ -32,6 +32,7 @@ export default function HomePage() {
             className="form-control"
             type="text"
             name="word"
+            placeholder="Cerca film o serie TV..."
           />
           <button className="btn btn-primary">Cerca</button>
         </form>
