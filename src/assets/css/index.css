@@ -17,7 +17,6 @@
 }
 
 .card img {
- 
   height: auto;
   object-fit: cover;
 }
@@ -51,4 +50,6 @@
 body.dark {
   background-color: dark;
 }
-
+main {
+  height: 100vh;
+}

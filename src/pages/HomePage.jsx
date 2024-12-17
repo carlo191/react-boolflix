@@ -46,7 +46,7 @@ export default function HomePage() {
         {/* Titolo più grande */}
         <ResultSection datas={movies} />
         <ResultSection datas={series} />
-      </main>
+      </main >
     </div>
   );
 }
