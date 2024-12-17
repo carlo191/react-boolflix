@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { searchContext } from "../contexts/searchContext";
-import ResultSection from "../components/ResultSection.jsx";
+import ResultSection from "../components/ResultSection";
+import "../assets/css/index.css";
 
 export default function HomePage() {
   const { series, movies, searchFields, search, setSearchFields } =
@@ -20,31 +21,32 @@ export default function HomePage() {
   };
 
   return (
-    <div className="container py-5">
-      <h1>Boolflix</h1>
+    <div className="homepage bg-dark">
+      {/* Header */}
+      <header className="header bg-dark">
+        <div className="logo  ">BoolFlix</div>
+        <div className="search-bar">
+          <form onSubmit={handleFormSubmit}>
+            <input
+              id="search-input"
+              onChange={handleSearchFields}
+              value={searchFields.word}
+              className="form-control"
+              type="text"
+              name="word"
+              placeholder="Cerca film o serie TV..."
+            />
+            <button className="btn btn-danger">Cerca</button>
+          </form>
+        </div>
+      </header>
 
-      <div className="search-bar">
-        <form onSubmit={handleFormSubmit}>
-          <input
-            id="search-input"
-            onChange={handleSearchFields}
-            value={searchFields.word}
-            className="form-control"
-            type="text"
-            name="word"
-            placeholder="Cerca film o serie TV..."
-          />
-          <button className="btn btn-primary">Cerca</button>
-        </form>
-      </div>
-
-      <ResultSection datas={movies}>
-        <h2>Film</h2>
-      </ResultSection>
-
-      <ResultSection datas={series}>
-        <h2>Serie TV</h2>
-      </ResultSection>
+      <main className="container bg-dark ">
+        <h1 className="page-title text-light">Cerca Film o Serie TV</h1>{" "}
+        {/* Titolo più grande */}
+        <ResultSection datas={movies} />
+        <ResultSection datas={series} />
+      </main>
     </div>
   );
 }

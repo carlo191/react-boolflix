@@ -1,9 +1,54 @@
-.page-wrapper {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.6); /* Semi-trasparente */
+  color: white;
+  text-align: left;
+  display: none;
+  transition: all 0.3s ease-in-out;
+  z-index: 2;
 }
 
-.page-wrapper > main {
-  flex-grow: 1;
+.card:hover .card-overlay {
+  display: block;
 }
+
+.card img {
+ 
+  height: auto;
+  object-fit: cover;
+}
+
+.rating i {
+  margin-right: 2px;
+}
+
+.rating i.fa-solid,
+.rating i.fa-regular {
+  color: #ffc107;
+}
+
+.card-hover:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  color: red;
+  font-size: 2rem;
+}
+
+body.dark {
+  background-color: dark;
+}
+
