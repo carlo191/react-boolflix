@@ -1,3 +1,15 @@
+// Mappa per associare i codici delle lingue ai codici delle bandiere
+const languageToFlag = {
+  en: "US",
+  it: "IT",
+  fr: "FR",
+  es: "ES",
+  de: "DE",
+  ja: "JP",
+  zh: "CN",
+  be: "BE",
+};
+
 export default function Card({ data }) {
   // Funzione per generare stelle in base alla valutazione
   const printStars = (rating) => {
@@ -8,6 +20,9 @@ export default function Card({ data }) {
     }
     return stars;
   };
+
+  // Ottieni il codice bandiera dalla mappa
+  const flagCode = languageToFlag[data.original_language] || null;
 
   return (
     <div className="col">
@@ -41,10 +56,20 @@ export default function Card({ data }) {
             )}
           </div>
         </div>
-        {/* Lingua originale */}
+        {/* Lingua originale con bandiera */}
         <div className="card-footer">
           <small className="text-muted">
-            Lingua: {data.original_language.toUpperCase()}
+            Lingua:{" "}
+            {flagCode ? (
+              <img
+                src={`https://flagsapi.com/${flagCode}/shiny/64.png`}
+                alt={data.original_language}
+                title={data.original_language}
+                style={{ width: "20px", height: "15px" }}
+              />
+            ) : (
+              data.original_language.toUpperCase()
+            )}
           </small>
         </div>
       </div>
